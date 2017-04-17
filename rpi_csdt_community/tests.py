@@ -76,7 +76,7 @@ class APITests(TestCase):
         limit = 5
         
         # Verify root itself is okay
-        response = urllib2.urlopen('https://dev1.csdt.rpi.edu/api-gis/', timeout = limit)
+        response = urllib2.urlopen('https://localhost/api-gis/', timeout = limit)
         self.assertTrue(response.getcode(), 200);
         
         data = json.load(response)
@@ -88,4 +88,4 @@ class APITests(TestCase):
             response = urllib2.urlopen(url, timeout = limit)
             
             self.assertTrue(response.getcode(), 200);
-            self.assetTrue(len(json.load(response)) > 0)
+            self.assertTrue(len(json.load(response)) > 0)
